@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FOV : MonoBehaviour
+public class fov2: MonoBehaviour
 {
     // Start is called before the first frame update
     public Light light;
@@ -17,6 +17,6 @@ public class FOV : MonoBehaviour
     {
 
         transform.position = Vector3.Lerp(transform.position, player.position + initialPos, 1);
-        light.range -= light.range * Time.deltaTime / 5;
+        light.range -= light.range * Time.deltaTime / 20;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaneSpawner : MonoBehaviour
+public class laneSpawn: MonoBehaviour
 {
     public Transform player;
     public int spawnRate = 2;
@@ -14,18 +14,20 @@ public class LaneSpawner : MonoBehaviour
     void Start()
     {
         offset = transform.position - player.position;
+        Debug.Log(offset);
     }
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z + 10f);
         if (timer < spawnRate)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
+            //Debug.Log(timer);
         }
         else
         {
             Instantiate(lanes, transform.position, transform.rotation);
+            Debug.Log(transform.position);
             timer = 0;
         }
     }

@@ -8,7 +8,8 @@ public class playerMove : MonoBehaviour
     public GameObject rightLane;
     public GameObject leftLane;
  
-    public float speed = 5;
+    public float speedrate = 30;
+    float timer = 0;
     // Start is called before the first frame update
 
     void Start()
@@ -16,14 +17,19 @@ public class playerMove : MonoBehaviour
         //below code could be used for restarting from the start of the road
         Vector3 lo = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
         Debug.Log(lo);
-        transform.position = lo + new Vector3(transform.localScale.x/1.2f,2f,0);   
+        transform.position = lo + new Vector3(transform.localScale.x/1.2f,2f,0);
+        rb.AddForce(0, 0, speedrate);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        rb.AddForce(0, 0, speed);
+        timer += Time.deltaTime;
+        if (timer > speedrate)
+        {
+            rb.AddForce(0, 0, speedrate);
+            timer = 0;
+        }
         if (Input.GetKeyDown("right"))
         {
             transform.position = new Vector3(rightLane.transform.position.x, transform.position.y, transform.position.z);
