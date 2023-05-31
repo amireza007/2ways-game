@@ -3,17 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - fov
+  - initLane
+  - rightLane
+  - leftLane
+  - player
+  - laneSpawner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - FoV
   - Water
   - UI
-  - 
-  - 
-  - 
+  - InitLayer
+  - rightLane
+  - leftLane
   - 
   - 
   - 
