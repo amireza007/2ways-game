@@ -8,8 +8,10 @@ public class playerMove : MonoBehaviour
     public GameObject rightLane;
     public GameObject leftLane;
  
-    public float speedrate = 30;
-    float timer = 0;
+    public float initialspeed = 100;
+    public float timer = 0;
+    public float speedIncreaseRate = 20;
+    public float jumpPower = 5000;
     // Start is called before the first frame update
 
     void Start()
@@ -18,16 +20,17 @@ public class playerMove : MonoBehaviour
         Vector3 lo = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
         Debug.Log(lo);
         transform.position = lo + new Vector3(transform.localScale.x/1.2f,2f,0);
-        rb.AddForce(0, 0, speedrate);
+        rb.AddForce(0, 0, initialspeed);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Physics.gravity = new Vector3(0, -20f, 0);      //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
-        if (timer > speedrate)
+        if (timer > speedIncreaseRate)
         {
-            rb.AddForce(0, 0, speedrate);
+            rb.velocity += new Vector3(0, 0, .1f);
             timer = 0;
         }
         if (Input.GetKeyDown("right"))
@@ -37,6 +40,10 @@ public class playerMove : MonoBehaviour
         if (Input.GetKeyDown("left"))
         {
             transform.position = new Vector3(leftLane.transform.position.x, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyDown("space")) 
+        {
+            rb.AddForce (0, jumpPower, 0);
         }
     }
 }
