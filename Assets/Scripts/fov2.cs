@@ -19,6 +19,6 @@ public class fov2: MonoBehaviour
         transform.position = new Vector3(player.position.x + initialPos.x, transform.position.y, player.position.z + initialPos.z);
         //transform.position = Vector3.Lerp(transform.position, player.position + initialPos, 1);
 
-        light.range -= Time.deltaTime / disappearRate;
+        //light.range -= Time.deltaTime / disappearRate;
     }
 }
