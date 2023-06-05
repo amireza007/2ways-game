@@ -9,7 +9,7 @@ public class playerMove : MonoBehaviour
     public GameObject rightLane;
     public GameObject leftLane;
     bool isOnTheRightLane = true;
- 
+    //public List<GameObject> torches = new List<GameObject>();
     public float initialspeed = 100;
     public float timer = 0;
     public float speedIncreaseRate = 20;
@@ -31,6 +31,14 @@ public class playerMove : MonoBehaviour
     {
         if(collision.collider.CompareTag("Rock")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Torch"))
+        {
+            Debug.Log(other.gameObject);
+            RenderSettings.fogEndDistance += 10;
         }
     }
     // Update is called once per frame

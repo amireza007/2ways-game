@@ -11,6 +11,7 @@ TagManager:
   - player
   - laneSpawner
   - Rock
+  - Torch
   layers:
   - Default
   - TransparentFX

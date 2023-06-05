@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class script : MonoBehaviour
 {
-    public float disappearanceSpeed= 2;
+    public float disappearanceSpeed= 10;
     public float timer = 0;
-    float end;
+    //float end;
     // Start is called before the first frame update
     void Start()
     {
         RenderSettings.fogStartDistance = -0.95f;
-        end = 24.85f;
-        RenderSettings.fogEndDistance = end;
+        RenderSettings.fogEndDistance = 24.85f;
     }
 
     private void LateUpdate()
     {
-        RenderSettings.fogEndDistance -= 10*Time.deltaTime;
+        timer += Time.deltaTime;
+        if(timer > disappearanceSpeed)
+        {
+            if(RenderSettings.fogEndDistance > RenderSettings.fogStartDistance + 4f)
+            {
+                Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
+                RenderSettings.fogEndDistance -= Time.deltaTime;
+            }
+        }
     }
 
     
