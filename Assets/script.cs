@@ -14,27 +14,11 @@ public class script : MonoBehaviour
         end = 24.85f;
         RenderSettings.fogEndDistance = end;
     }
-    private void OnRenderObject()
-    {
-        timer = -Time.deltaTime * 10f;
-        RenderSettings.fogEndDistance -= 1;
 
-        //RenderSettings.fogEndDistance -= 0.1f;
-        Debug.Log("This has been called");
-        if (timer < -disappearanceSpeed)
-        {
-            Debug.Log(RenderSettings.fogStartDistance <= RenderSettings.fogEndDistance);
-            if (RenderSettings.fogStartDistance <= RenderSettings.fogEndDistance)
-            {
-                RenderSettings.fogEndDistance -= 1;
-            }
-            timer = 0;
-        }
-
-    }
-    // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
-        OnRenderObject();
+        RenderSettings.fogEndDistance -= 10*Time.deltaTime;
     }
+
+    
 }
