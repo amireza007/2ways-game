@@ -7,6 +7,7 @@ public class playerMove : MonoBehaviour
     public Rigidbody rb;
     public GameObject rightLane;
     public GameObject leftLane;
+    bool isOnTheRightLane = true;
  
     public float initialspeed = 100;
     public float timer = 0;
@@ -26,6 +27,7 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //RenderSettings.fogDensity = 100f;
         Physics.gravity = new Vector3(0, -20f, 0);      //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
         if (timer > speedIncreaseRate)
@@ -38,21 +40,20 @@ public class playerMove : MonoBehaviour
         Debug.Log(rightLane.transform.position.x);
         if (Input.GetKeyDown("t"))
         {
-            if (transform.position.x == rightLane.transform.position.x)
+            if (isOnTheRightLane)
             {
-                transform.position = new Vector3(leftLane.transform.position.x, transform.position.y, transform.position.z);
+                transform.position = new Vector3(-.7f, transform.position.y, transform.position.z);
+                isOnTheRightLane = false;
             }
-            else if (transform.position.x == leftLane.transform.position.x) {
-                transform.position = new Vector3(rightLane.transform.position.x, transform.position.y, transform.position.z);
+            else if (!isOnTheRightLane) {
+                transform.position = new Vector3(.7f, transform.position.y, transform.position.z);
+                isOnTheRightLane = true;
 
             }
         }
-        else if (Input.GetKeyDown("right") && transform.position.x == leftLane.transform.position.x)
-        {
-        }
         if (Input.GetKeyDown("space")) 
         {
-            rb.AddForce (0, jumpPower, 0);
+            rb.AddForce (0, jumpPower, rb.velocity.z/10);
         }
     }
 }
