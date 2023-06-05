@@ -24,6 +24,8 @@ public class playerMove : MonoBehaviour
         //transform.position = lo + new Vector3(transform.localScale.x/1.2f,2f,0);
         transform.position = new Vector3(rightLane.transform.position.x, transform.position.y, transform.position.z);
         rb.AddForce(0, 0, initialspeed);
+
+        Physics.gravity = new Vector3(0, -20f, 0);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -35,11 +37,11 @@ public class playerMove : MonoBehaviour
     void Update()
     {
         //RenderSettings.fogDensity = 100f;
-        Physics.gravity = new Vector3(0, -20f, 0);      //important part, could be used for rocks as well!!!
+            //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
         if (timer > speedIncreaseRate)
         {
-            rb.velocity += new Vector3(0, 0, 1f);
+            rb.velocity += new Vector3(0, 0, 0.1f);
             timer = 0;
         }
         //if (Input.GetKeyDown("right"))

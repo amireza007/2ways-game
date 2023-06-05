@@ -10,6 +10,7 @@ TagManager:
   - leftLane
   - player
   - laneSpawner
+  - Rock
   layers:
   - Default
   - TransparentFX
