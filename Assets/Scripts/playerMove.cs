@@ -14,12 +14,13 @@ public class playerMove : MonoBehaviour
     public float timer = 0;
     public float speedIncreaseRate = 20;
     public float jumpPower = 5000;
+    public float torchPower = 4;
     // Start is called before the first frame update
 
     void Start()
     {
         //below code could be used for restarting from the start of the road
-        Vector3 lo = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
+        //Vector3 lo = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
         //Debug.Log(lo);
         //transform.position = lo + new Vector3(transform.localScale.x/1.2f,2f,0);
         transform.position = new Vector3(rightLane.transform.position.x, transform.position.y, transform.position.z);
@@ -38,7 +39,8 @@ public class playerMove : MonoBehaviour
         if (other.CompareTag("Torch"))
         {
             Debug.Log(other.gameObject);
-            RenderSettings.fogEndDistance += 10;
+            RenderSettings.fogEndDistance += torchPower;
+            Destroy(other.gameObject);
         }
     }
     // Update is called once per frame

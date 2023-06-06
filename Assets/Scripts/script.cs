@@ -11,7 +11,7 @@ public class script : MonoBehaviour
     void Start()
     {
         RenderSettings.fogStartDistance = -0.95f;
-        RenderSettings.fogEndDistance = 10.85f;
+        RenderSettings.fogEndDistance = 30.85f;
     }
 
     private void LateUpdate()
@@ -22,7 +22,7 @@ public class script : MonoBehaviour
             if(RenderSettings.fogEndDistance > RenderSettings.fogStartDistance + 4f)
             {
                 Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
-                RenderSettings.fogEndDistance -= Time.deltaTime;
+                RenderSettings.fogEndDistance -= Time.deltaTime / 1.4f;
             }
         }
     }
