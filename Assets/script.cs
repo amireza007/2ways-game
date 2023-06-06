@@ -11,7 +11,7 @@ public class script : MonoBehaviour
     void Start()
     {
         RenderSettings.fogStartDistance = -0.95f;
-        RenderSettings.fogEndDistance = 24.85f;
+        RenderSettings.fogEndDistance = 10.85f;
     }
 
     private void LateUpdate()
