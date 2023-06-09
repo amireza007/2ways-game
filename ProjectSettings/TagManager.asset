@@ -12,6 +12,7 @@ TagManager:
   - laneSpawner
   - Rock
   - Torch
+  - PlayerPrefab
   layers:
   - Default
   - TransparentFX
