@@ -13,7 +13,7 @@ public class playerMove : MonoBehaviour
     public float initialspeed = 100;
     public float timer = 0;
     public float speedIncreaseRate = 20;
-    public float jumpPower = 5000;
+    public float jumpPower = 50;
     public float torchPower = 4;
     // Start is called before the first frame update
 
@@ -26,11 +26,11 @@ public class playerMove : MonoBehaviour
         transform.position = new Vector3(rightLane.transform.position.x, transform.position.y, transform.position.z);
         rb.AddForce(0, 0, initialspeed);
 
-        Physics.gravity = new Vector3(0, -20f, 0);
+        //Physics.gravity = new Vector3(0, -20f, 0);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Rock")) {
+        if(collision.collider.CompareTag("LeftLObstacle")|| collision.collider.CompareTag("LeftSObstacle") || collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

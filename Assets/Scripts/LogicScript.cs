@@ -16,7 +16,7 @@ public class LogicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.y < 0) {
+        if (player.transform.position.y < 0) { //needs some serious revision if we want Physic-less gameObjs!
 
             restartGame();
         }
