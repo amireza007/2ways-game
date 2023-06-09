@@ -3198,7 +3198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904790022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0.33, z: 1.66}
+  m_LocalPosition: {x: 0, y: 0.21, z: 0}
   m_LocalScale: {x: 0.15, y: 0.25263157, z: 0.16111112}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3217,7 +3217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f232bfc970904e44a5bb5d71457d9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 330585543}
   rightLane: {fileID: 1685222624}
   leftLane: {fileID: 0}
   initialspeed: 7.59
@@ -3225,6 +3224,7 @@ MonoBehaviour:
   speedIncreaseRate: 0.48
   jumpPower: 650
   torchPower: 4
+  loadScreenSeconds: 2
 --- !u!54 &904790028
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3236,10 +3236,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 1
 --- !u!95 &904790029
 Animator:
@@ -3252,8 +3252,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9b2cbf842dea246a0ac4873d829e5153, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
+  m_CullingMode: 1
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3868,7 +3868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271727122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0, z: 0}
+  m_LocalPosition: {x: 0.72, y: 0, z: 1.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3888,8 +3888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb01acc3afabe4fafb995ff6e4a57cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedIncreaseRate: 0.48
+  speedIncreaseRate: 2.08
   timer: 0
+  currentSpeed: 0.01
 --- !u!1001 &1282116624
 PrefabInstance:
   m_ObjectHideFlags: 0

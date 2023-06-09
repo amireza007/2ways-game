@@ -8,7 +8,8 @@ using System.Threading;
 
 public class playerMove : MonoBehaviour
 {
-    public GameObject mainCamera;
+    float m_MySliderValue;
+    Animator m_Animator;
     public GameObject rightLane;
     public GameObject leftLane;
     bool isOnTheRightLane = true;
@@ -18,10 +19,12 @@ public class playerMove : MonoBehaviour
     public float speedIncreaseRate = 20;
     public float jumpPower = 5000;
     public float torchPower = 4;
+    public float loadScreenSeconds = 2;
     // Start is called before the first frame update
 
     void Start()
     {
+        m_Animator = gameObject.GetComponent<Animator>();
         //below code could be used for restarting from the start of the road
         //Vector3 rightLaneCenter = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
         //Debug.Log(rightLaneCenter);
@@ -32,15 +35,13 @@ public class playerMove : MonoBehaviour
     }
     private IEnumerator WaitForSceneLoad()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(loadScreenSeconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("Rock")) {
             GameObject.FindGameObjectWithTag("PlayerPrefab").GetComponent<PlayerPrefabMove>().enabled = false;
-            //mainCamera.transform.position = transform.position;
-            //WaitForSecondsRealtime s = new WaitForSecondsRealtime(3);
             StartCoroutine(WaitForSceneLoad());
         }
     }
@@ -53,10 +54,29 @@ public class playerMove : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+   
     // Update is called once per frame
     void Update()
     {
-        //transform.position += new Vector3(0, 0, 0.1f);
+        Debug.Log(m_Animator.speed);
+        
+        if (Input.GetKeyDown("space"))
+        {
+            m_Animator.SetTrigger("jump");
+            m_Animator.speed = 3;
+
+            //playerAnimation.ResetTrigger("JumpTrigger");
+        }
 
     }
+    //void OnGUI()
+    //{
+    //    //Create a Label in Game view for the Slider
+    //    GUI.Label(new Rect(0, 25, 40, 60), "Speed");
+    //    //Create a horizontal Slider to control the speed of the Animator. Drag the slider to 1 for normal speed.
+
+    //    m_MySliderValue = GUI.HorizontalSlider(new Rect(45, 25, 300, 100), m_MySliderValue, 0.0F, 1.0F);
+    //    //Make the speed of the Animator match the Slider value
+    //    m_Animator.speed = m_MySliderValue;
+    //}
 }
