@@ -30,7 +30,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerJump
-  m_Speed: 1
+  m_Speed: 1.62
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -9101608966298376168}
@@ -142,7 +142,7 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5881137704287185548}
-    m_Position: {x: 270, y: 150, z: 0}
+    m_Position: {x: 260, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1912460629352603221}
     m_Position: {x: 470, y: 240, z: 0}
@@ -164,7 +164,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle
-  m_Speed: 13.36
+  m_Speed: 17.36
   m_CycleOffset: 1
   m_Transitions:
   - {fileID: -2328429483173955070}

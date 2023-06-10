@@ -63,7 +63,7 @@ public class playerMove : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             m_Animator.SetTrigger("jump");
-            m_Animator.speed = 3;
+            //m_Animator.speed = 3;
 
             //playerAnimation.ResetTrigger("JumpTrigger");
         }
