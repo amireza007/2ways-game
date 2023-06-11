@@ -22,12 +22,12 @@ public class PlayerPrefabMove : MonoBehaviour
         //RenderSettings.fogDensity = 100f;
         //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
-        transform.position += new Vector3(0, 0, 0.009f);
+        transform.position += new Vector3(0, 0, currentSpeed);
 
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
         if (timer > speedIncreaseRate)
         {
-            //currentSpeed += Time.deltaTime;
+            currentSpeed += Mathf.Pow(Time.deltaTime,2);
             timer = 0;
         }
         if (Input.GetKeyDown("t"))

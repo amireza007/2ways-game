@@ -20,6 +20,8 @@ public class playerMove : MonoBehaviour
     public float jumpPower = 5000;
     public float torchPower = 4;
     public float loadScreenSeconds = 2;
+
+    public Rigidbody playerRigidbody;
     // Start is called before the first frame update
 
     void Start()
@@ -62,11 +64,19 @@ public class playerMove : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
+            playerRigidbody.useGravity = false;
+
             m_Animator.SetTrigger("jump");
+
             //m_Animator.speed = 3;
 
             //playerAnimation.ResetTrigger("JumpTrigger");
         }
+    }
+
+    public void EndJumpAnimation()
+    {
+        playerRigidbody.useGravity = false;
     }
     //void OnGUI()
     //{

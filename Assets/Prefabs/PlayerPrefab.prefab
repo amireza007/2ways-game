@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271032211211354200}
+  - component: {fileID: 3134010266491898290}
+  - component: {fileID: 3134010266491898287}
+  - component: {fileID: 3134010266491898289}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -32,6 +35,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &3134010266491898290
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797773435192203360}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 1
+--- !u!114 &3134010266491898287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797773435192203360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb933af30e48f3478466ef362a749ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedIncreaseRate: 0.7
+  timer: 0
+  currentSpeed: 0.01
+--- !u!114 &3134010266491898289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797773435192203360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174922dc5be194d4294bb6ba0bb1dc34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3134010266547306899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,22 +123,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
         type: 3}
@@ -142,22 +188,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3134010266547306899}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &3134010267210675925
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2864100704286932162}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!135 &3134010267210675756
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -197,14 +227,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f232bfc970904e44a5bb5d71457d9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3134010267210675925}
   rightLane: {fileID: 0}
   leftLane: {fileID: 0}
-  initialspeed: 100
-  timer: 0
-  speedIncreaseRate: 0.89
-  jumpPower: 200
+  initialspeed: 7.59
+  timer: 10.21
+  speedIncreaseRate: 0.48
+  jumpPower: 650
   torchPower: 4
+  loadScreenSeconds: 2
+  playerRigidbody: {fileID: 3134010266491898290}
+--- !u!95 &724156290
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864100704286932162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b2cbf842dea246a0ac4873d829e5153, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3239360021905516152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 053e798e0925b4043ae43929871b0a9b,
