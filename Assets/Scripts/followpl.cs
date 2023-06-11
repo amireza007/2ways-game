@@ -12,7 +12,7 @@ public class followpl : MonoBehaviour
         initialPos = transform.position - player.position;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
         transform.position = new Vector3 (transform.position.x, transform.position.y, player.position.z + initialPos.z);
