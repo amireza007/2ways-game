@@ -6,7 +6,7 @@ public class PlayerPrefabMove : MonoBehaviour
 {
     public float speedIncreaseRate = 1f;
     public float timer = 0;
-    public float currentSpeed = 0.01f;
+    public float currentSpeed = .05f;
     bool isOnTheRightLane = true;
     Transform rightLane;
 
@@ -23,11 +23,11 @@ public class PlayerPrefabMove : MonoBehaviour
         //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
         transform.position += new Vector3(0, 0, currentSpeed);
+
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
         if (timer > speedIncreaseRate)
         {
-            currentSpeed += 0.01f;
-            
+            currentSpeed += Time.deltaTime;
             timer = 0;
         }
         if (Input.GetKeyDown("t"))

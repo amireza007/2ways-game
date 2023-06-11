@@ -67,7 +67,6 @@ public class playerMove : MonoBehaviour
 
             //playerAnimation.ResetTrigger("JumpTrigger");
         }
-
     }
     //void OnGUI()
     //{

@@ -5,16 +5,17 @@ using UnityEngine;
 public class followpl : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform player;
+    public Transform playerPrefab;
+    //public Transform player;
     Vector3 initialPos;
     void Start()
     {
-        initialPos = transform.position - player.position;
+        initialPos = transform.position - playerPrefab.position;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
-        transform.position = new Vector3 (transform.position.x, transform.position.y, player.position.z + initialPos.z);
+        transform.position = new Vector3 (transform.position.x, transform.position.y, playerPrefab.position.z + initialPos.z);
     }
 }
