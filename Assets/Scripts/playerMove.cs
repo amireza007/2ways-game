@@ -44,6 +44,7 @@ public class playerMove : MonoBehaviour
     {
         if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") || collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
         {
+            StartCoroutine(WaitForSceneLoad());
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -60,8 +61,8 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Animator.speed);
 
+        //Debug.Log(m_Animator.speed);
         if (Input.GetKeyDown("space"))
         {
             playerRigidbody.useGravity = false;
@@ -76,7 +77,8 @@ public class playerMove : MonoBehaviour
 
     public void EndJumpAnimation()
     {
-        playerRigidbody.useGravity = false;
+        playerRigidbody.useGravity = true;
+        Debug.Log("event triggered");
     }
     //void OnGUI()
     //{
