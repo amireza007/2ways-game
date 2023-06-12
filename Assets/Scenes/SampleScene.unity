@@ -2732,14 +2732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f232bfc970904e44a5bb5d71457d9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightLane: {fileID: 1685222624}
-  leftLane: {fileID: 0}
-  initialspeed: 7.59
-  timer: 10.21
-  speedIncreaseRate: 0.48
-  jumpPower: 650
-  torchPower: 4
-  loadScreenSeconds: 2
   playerRigidbody: {fileID: 0}
 --- !u!54 &904790028
 Rigidbody:
@@ -5451,7 +5443,7 @@ PrefabInstance:
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7599999
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5508,6 +5500,16 @@ PrefabInstance:
       propertyPath: rightLane
       value: 
       objectReference: {fileID: 1685222624}
+    - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4797773435192203360, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_Name

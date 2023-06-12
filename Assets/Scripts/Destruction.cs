@@ -15,7 +15,7 @@ public class Destruction : MonoBehaviour
     //    Debug.Log("this is destroyed!");
     //    Destroy(gameObject);
     //}
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         
