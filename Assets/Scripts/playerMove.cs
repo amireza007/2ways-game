@@ -12,7 +12,9 @@ public class playerMove : MonoBehaviour
     Animator m_Animator;
     public GameObject rightLane;
     public GameObject leftLane;
+
     bool isOnTheRightLane = true;
+
     //public List<GameObject> torches = new List<GameObject>();
     public float initialspeed = 100;
     public float timer = 0;
@@ -22,11 +24,25 @@ public class playerMove : MonoBehaviour
     public float loadScreenSeconds = 2;
 
     public Rigidbody playerRigidbody;
-    // Start is called before the first frame update
+
+    [Range(0f, 1f)] [SerializeField] private float swipeAccuracy;
+    [SerializeField] private float jumpSwipeDegree;
+
+    private float screenHeight;
+
+    private Vector2 initialPosition;
+    private Vector2 finalPosition;
+    private bool isSwiping;
+
+
+    private void Awake()
+    {
+        m_Animator = gameObject.GetComponent<Animator>();
+        screenHeight = Screen.height;
+    }
 
     void Start()
     {
-        m_Animator = gameObject.GetComponent<Animator>();
         //below code could be used for restarting from the start of the road
         //Vector3 rightLaneCenter = GameObject.FindWithTag("rightLane").transform.position - (GameObject.FindWithTag("rightLane").transform.localScale / 2);
         //Debug.Log(rightLaneCenter);
@@ -35,18 +51,22 @@ public class playerMove : MonoBehaviour
 
         Physics.gravity = new Vector3(0, -20f, 0);
     }
+
     private IEnumerator WaitForSceneLoad()
     {
         yield return new WaitForSeconds(loadScreenSeconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") || collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
+        if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") ||
+            collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Torch"))
@@ -60,18 +80,52 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Animator.speed);
+        // Debug.Log(m_Animator.speed);
 
         if (Input.GetKeyDown("space"))
         {
-            playerRigidbody.useGravity = false;
-
-            m_Animator.SetTrigger("jump");
+            PlayerJump();
 
             //m_Animator.speed = 3;
 
             //playerAnimation.ResetTrigger("JumpTrigger");
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            isSwiping = true;
+            initialPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            finalPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            if (isSwiping && CheckJumpSwipe())
+            {
+                PlayerJump();
+                isSwiping = false;
+            }
+        }
+    }
+
+    private bool CheckJumpSwipe()
+    {
+        Vector2 swipeVector = finalPosition - initialPosition;
+        float swipeVectorMagnitude = swipeVector.magnitude;
+        float swipeSin = swipeVector.y / swipeVectorMagnitude;
+        
+        Debug.Log(swipeSin);
+
+        return swipeSin >= Mathf.Sin(Mathf.Deg2Rad * jumpSwipeDegree) &&
+               swipeVectorMagnitude / screenHeight > swipeAccuracy;
+    }
+
+    private void PlayerJump()
+    {
+        playerRigidbody.useGravity = false;
+
+        m_Animator.SetTrigger("jump");
     }
 
     public void EndJumpAnimation()

@@ -10,13 +10,6 @@ public class PlayerPrefabMove : MonoBehaviour
     bool isOnTheRightLane = true;
     Transform rightLane;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //transform.position = new Vector3(rightLane.position.x, transform.position.y, transform.position.z);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //RenderSettings.fogDensity = 100f;
@@ -44,9 +37,6 @@ public class PlayerPrefabMove : MonoBehaviour
 
             }
         }
-        //if (Input.GetKeyDown("right"))
-        //Debug.Log(transform.position.x);
-        //Debug.Log(rightLane.transform.position.x);
-
+        
     }
 }

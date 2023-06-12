@@ -21,7 +21,7 @@ public class script : MonoBehaviour
         {
             if(RenderSettings.fogEndDistance > RenderSettings.fogStartDistance + 4f)
             {
-                Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
+                // Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
                 RenderSettings.fogEndDistance -= Time.deltaTime / 1.4f;
             }
         }
