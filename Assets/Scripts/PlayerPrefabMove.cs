@@ -20,6 +20,7 @@ public class PlayerPrefabMove : MonoBehaviour
     public float currentSpeed = .05f;
     bool isOnTheRightLane = true;
     Transform rightLane;
+    public Rigidbody playerPrefabRigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,17 @@ public class PlayerPrefabMove : MonoBehaviour
     }
     private IEnumerator WaitForSceneLoad()
     {
-        yield return new WaitForSeconds(loadScreenSeconds);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") || collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
         {
+            Debug.Log("it's Gameover!");
+            playerPrefabRigidbody.AddForce(-4, 0, -4);
             StartCoroutine(WaitForSceneLoad());
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+           
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -69,7 +72,7 @@ public class PlayerPrefabMove : MonoBehaviour
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
         if (timer > speedIncreaseRate)
         {
-            Debug.Log("Now you did it!");
+            //Debug.Log("Now you did it!");
             //currentSpeed += Mathf.Pow(Time.deltaTime,2);
             timer = 0;
             transform.position = new Vector3(-0.7f, y, z);

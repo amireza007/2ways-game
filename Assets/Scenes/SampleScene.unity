@@ -445,7 +445,7 @@ PrefabInstance:
     - target: {fileID: 1953233869441911517, guid: aef156d742dec430e8451e1ae5ce9d96,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 1953233869441911517, guid: aef156d742dec430e8451e1ae5ce9d96,
         type: 3}
@@ -485,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 8178910701895942643, guid: aef156d742dec430e8451e1ae5ce9d96,
         type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef156d742dec430e8451e1ae5ce9d96, type: 3}
@@ -4508,7 +4508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1661998665
 Transform:
   m_ObjectHideFlags: 0
@@ -5294,7 +5294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 724156290, guid: ec76a678ed5c1b046ac8cca3ba24b673, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5304,7 +5304,7 @@ PrefabInstance:
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5314,7 +5314,7 @@ PrefabInstance:
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.38
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5368,8 +5368,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
+      propertyPath: loadScreenSeconds
+      value: 6.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
       propertyPath: speedIncreaseRate
       value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: playerPrefabRigidbody
+      value: 
+      objectReference: {fileID: 3134010266491898293}
+    - target: {fileID: 3134010266491898289, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898290, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 3134010266491898292, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5381,10 +5401,15 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134010267210675756, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5406,6 +5431,12 @@ PrefabInstance:
 --- !u!4 &3134010266491898288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+    type: 3}
+  m_PrefabInstance: {fileID: 3134010266491898285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3134010266491898293 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3134010266491898290, guid: ec76a678ed5c1b046ac8cca3ba24b673,
     type: 3}
   m_PrefabInstance: {fileID: 3134010266491898285}
   m_PrefabAsset: {fileID: 0}
