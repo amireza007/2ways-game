@@ -422,6 +422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Default LeftLongObst (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1953233869441911516, guid: aef156d742dec430e8451e1ae5ce9d96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1953233869441911517, guid: aef156d742dec430e8451e1ae5ce9d96,
         type: 3}
       propertyPath: m_RootOrder
@@ -4024,6 +4029,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 379615455}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1494516683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+    type: 3}
+  m_PrefabInstance: {fileID: 3134010266491898285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503662264 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3774698539383361714, guid: 054744bdca4b5438a8311bea6d74f4ed,
@@ -4497,7 +4508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1661998665
 Transform:
   m_ObjectHideFlags: 0
@@ -5298,7 +5309,7 @@ PrefabInstance:
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.139
+      value: 0.044
       objectReference: {fileID: 0}
     - target: {fileID: 271032211211354200, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
@@ -5340,15 +5351,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1494516683}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: annoyingY
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: currentSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134010266491898287, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: speedIncreaseRate
+      value: 2.89
+      objectReference: {fileID: 0}
     - target: {fileID: 3134010266491898292, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3134010266491898292, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239360021905516152, guid: ec76a678ed5c1b046ac8cca3ba24b673,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 4797773435192203360, guid: ec76a678ed5c1b046ac8cca3ba24b673,
         type: 3}

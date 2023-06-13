@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPrefabMove : MonoBehaviour
 {
+    float z;
+    float y;
+    public float annoyingY = 0.136f; 
+    public Transform player;
     Vector3 animationLastPosition;
     Animator player_animator;
     public float torchPower = 4;
@@ -60,22 +64,28 @@ public class PlayerPrefabMove : MonoBehaviour
         
 
         transform.position += new Vector3(0, 0, currentSpeed);
-
+        z = transform.position.z;
+        y = transform.position.y;
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
         if (timer > speedIncreaseRate)
         {
+            Debug.Log("Now you did it!");
             //currentSpeed += Mathf.Pow(Time.deltaTime,2);
             timer = 0;
+            transform.position = new Vector3(-0.7f, y, z);
+            player.position =transform.position + new Vector3(0, annoyingY, 0);
+            Debug.Log(player.position);
+            
         }
-        if (player_animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-        {
-            //Debug.Log(animationLastPosition);
-            //Debug.Log("hi");
+        //if (player_animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        //{
+        //    //Debug.Log(animationLastPosition);
+        //    //Debug.Log("hi");
 
-            transform.position = new Vector3(animationLastPosition.x, transform.position.y, transform.position.z);
-            //transform.position =new Vector3 (0.70f, 0.08f, 2.43f);
-            //Debug.Log(transform.position - animationLastPosition);
-        }
+        //    transform.position = new Vector3(animationLastPosition.x, transform.position.y, transform.position.z);
+        //    //transform.position =new Vector3 (0.70f, 0.08f, 2.43f);
+        //    //Debug.Log(transform.position - animationLastPosition);
+        //}
         if (Input.GetKeyDown("t"))
         {
             
