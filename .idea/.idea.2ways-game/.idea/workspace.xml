@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f565d016-3a8b-4571-88db-16e26383d4cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerPrefabMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerPrefabMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/playerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/playerMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ultimate_Ball_v1.0.1 1.ma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ultimate_Ball_v1.0.1 1.ma.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ultimate_Ball_v1.0.1.ma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ultimate_Ball_v1.0.1.ma.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686507804902</updated>
       <workItem from="1686507824280" duration="931000" />
-      <workItem from="1686571156426" duration="7194000" />
+      <workItem from="1686571156426" duration="8605000" />
     </task>
     <servers />
   </component>
