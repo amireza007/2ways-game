@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPrefabMove : MonoBehaviour
 {
+    Vector3 animationLastPosition;
     Animator player_animator;
     public float torchPower = 4;
     public float loadScreenSeconds = 2;
@@ -21,6 +22,7 @@ public class PlayerPrefabMove : MonoBehaviour
     {
         player_animator = gameObject.GetComponentInChildren<Animator>();
         //transform.position = new Vector3(rightLane.position.x, transform.position.y, transform.position.z);
+        animationLastPosition = transform.position;
     }
     private IEnumerator WaitForSceneLoad()
     {
@@ -44,12 +46,19 @@ public class PlayerPrefabMove : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    void stay()
+    {
+        animationLastPosition = transform.position;
+        Debug.Log(animationLastPosition);
+    }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //RenderSettings.fogDensity = 100f;
         //important part, could be used for rocks as well!!!
         timer += Time.deltaTime;
+        
+
         transform.position += new Vector3(0, 0, currentSpeed);
 
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
@@ -58,25 +67,38 @@ public class PlayerPrefabMove : MonoBehaviour
             //currentSpeed += Mathf.Pow(Time.deltaTime,2);
             timer = 0;
         }
+        if (player_animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            //Debug.Log(animationLastPosition);
+            //Debug.Log("hi");
+
+            transform.position = new Vector3(animationLastPosition.x, transform.position.y, transform.position.z);
+            //transform.position =new Vector3 (0.70f, 0.08f, 2.43f);
+            //Debug.Log(transform.position - animationLastPosition);
+        }
         if (Input.GetKeyDown("t"))
         {
+            
+
             if (isOnTheRightLane)
             {
-                transform.position = new Vector3(-0.7f, transform.position.y, transform.position.z);
+                Debug.Log("Left!");
+                //player_animator.SetTrigger("switchLeft");
+                player_animator.ResetTrigger("RightSwitch");
+
+                player_animator.SetTrigger("LeftSwitch");
                 isOnTheRightLane = false;
+
             }
             else if (!isOnTheRightLane)
             {
-                //player_animator.SetTrigger("switchLeft");
-
-                transform.position = new Vector3(0.7f, transform.position.y, transform.position.z);
+                Debug.Log("right!");
+                player_animator.ResetTrigger("LeftSwitch");
+                player_animator.SetTrigger("RightSwitch");
                 isOnTheRightLane = true;
-
             }
         }
-        //if (Input.GetKeyDown("right"))
-        //Debug.Log(transform.position.x);
-        //Debug.Log(rightLane.transform.position.x);
+        
 
     }
 }

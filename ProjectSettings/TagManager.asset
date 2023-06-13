@@ -16,6 +16,8 @@ TagManager:
   - RightSObstacle
   - LeftSObstacle
   - RightLObstacle
+  - RightLOsbtacle
+  - PlayerPrefab
   layers:
   - Default
   - TransparentFX

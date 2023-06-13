@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script : MonoBehaviour
+public class FogTweak: MonoBehaviour
 {
     public float disappearanceSpeed= 10;
     public float timer = 0;
