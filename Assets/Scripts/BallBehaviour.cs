@@ -8,6 +8,8 @@ public class BallBehaviour : MonoBehaviour
     PlayerMovement playerMovementScript;
 
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private SphereCollider playerCollider;
+    [SerializeField] private SphereCollider ballCollider;
     private void Start()
     {
         GetComponent<Collider>().enabled = false;
@@ -27,12 +29,12 @@ public class BallBehaviour : MonoBehaviour
     }
     public void TriggerCollider()
     {
-        GetComponent<SphereCollider>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<SphereCollider>().enabled = false;
+        ballCollider.enabled = true;
+        playerCollider.enabled = false;
     }
     public void EndTriggerCollider()
     {
-        GetComponent<SphereCollider>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<SphereCollider>().enabled = true;
+        ballCollider.enabled = false;
+        playerCollider.enabled = true;
     }
 }

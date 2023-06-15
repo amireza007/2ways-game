@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1835738481228066920}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,9 +103,10 @@ GameObject:
   - component: {fileID: 8111821111193542640}
   - component: {fileID: 8111821111193542655}
   - component: {fileID: 8111821111193542654}
+  - component: {fileID: 357095327}
   m_Layer: 0
   m_Name: BallParent
-  m_TagString: Untagged
+  m_TagString: BallParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +161,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8111821112161051064}
+  playerCollider: {fileID: 1835738481228066921}
+  ballCollider: {fileID: 357095327}
+--- !u!135 &357095327
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111821111193542641}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8958666276105163976
 GameObject:
   m_ObjectHideFlags: 0

@@ -236,8 +236,11 @@ namespace ArianWorkplace
         }
         public void GameOverProcedure()
         {
-            followPlayerScript = GameObject.FindGameObjectWithTag("CameraMover").GetComponent<FollowPlayer>();
-            followPlayerScript.enabled = false;
+            foreach (var followPlayer in GameObject.FindObjectsByType<FollowPlayer>(FindObjectsSortMode.None))
+            {
+                followPlayer.enabled = false;
+            }
+            
             CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
             audioManager.Play("BallCollision");
             audioManager.LowerVolume("MainTheme", 0.5f);
