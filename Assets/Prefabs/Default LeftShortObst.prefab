@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Short Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 7771733221952116914, guid: df972fd786e2f4379b08662dec54c94c,
+        type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df972fd786e2f4379b08662dec54c94c, type: 3}
 --- !u!4 &1536114899384467286 stripped

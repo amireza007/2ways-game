@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4990190277655143141}
   m_Layer: 0
   m_Name: Right Short Obstacle
-  m_TagString: RightSObstacle
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

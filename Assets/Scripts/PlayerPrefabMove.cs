@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EZCameraShake;
 
 public class PlayerPrefabMove : MonoBehaviour
 {
+    followpl followPlayerScript;
     public float speedIncreaseRate = 1f;
     public float timer = 0;
     public float currentSpeed = .05f;
@@ -54,16 +56,19 @@ public class PlayerPrefabMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") ||
-            collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
+        if (collision.collider.CompareTag("obstacle"))
         {
 
             //prefabScript.enabled = false;
+            followPlayerScript = GameObject.FindGameObjectWithTag("CameraMover").GetComponent<followpl>();
+            followPlayerScript.enabled = false;
+            //0.5f, 1f, 0.5f, 1f)
+            CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
             this.enabled = false;
 
             StartCoroutine(StopRotating());
 
-            playerRigidbody.AddForce(-100, 0, -50);
+            playerRigidbody.AddForce(-80, 0, -50);
 
             StartCoroutine(WaitForSceneLoad());
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);

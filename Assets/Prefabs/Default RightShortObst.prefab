@@ -70,6 +70,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Short Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 3868843511922345874, guid: 470b9e3f3c0344e24b8933b6df7afa88,
+        type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4538278230704299304, guid: 470b9e3f3c0344e24b8933b6df7afa88,
         type: 3}
       propertyPath: m_RootOrder

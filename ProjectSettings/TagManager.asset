@@ -12,10 +12,8 @@ TagManager:
   - laneSpawner
   - Rock
   - Torch
-  - LeftLObstacle
-  - RightSObstacle
-  - LeftSObstacle
-  - RightLObstacle
+  - CameraMover
+  - obstacle
   layers:
   - Default
   - TransparentFX
