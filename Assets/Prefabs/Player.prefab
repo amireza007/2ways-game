@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb74b70a7e64d1492e7195d2905fd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   switchLaneSpeed: 0.9
   rightLaneTransform: {fileID: 0}
   rightLaneSquashTransform: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   leftLaneSquashTransform: {fileID: 0}
   ballParentAnimator: {fileID: 8111821111193542655}
   ballAnimator: {fileID: 4663363866015187414}
-  squashAnimationSpeedMultiplier: 0.7
+  squashAnimationSpeedMultiplier: 0.6
   squashSpeed: 1
   swipeAccuracy: 0.2
   jumpSwipeDegree: 45

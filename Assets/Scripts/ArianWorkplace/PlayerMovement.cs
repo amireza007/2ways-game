@@ -217,7 +217,11 @@ namespace ArianWorkplace
         {
             if (collision.collider.CompareTag("obstacle"))
             {
-                followPlayerScript.enabled = false;
+                foreach (var followPlayer in FindObjectsByType<FollowPlayer>(FindObjectsSortMode.None))
+                {
+                    followPlayer.enabled = false;
+                }
+                
                 CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
                 this.enabled = false;
 
@@ -236,6 +240,7 @@ namespace ArianWorkplace
             {
                 Debug.Log(other.gameObject);
                 RenderSettings.fogEndDistance += torchPower;
+                RenderSettings.fogStartDistance += torchPower;
                 Destroy(other.gameObject);
             }
         }
