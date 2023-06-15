@@ -16,6 +16,7 @@ namespace ArianWorkplace
 
     public class PlayerMovement : MonoBehaviour
     {
+        AudioManager audioManager;
         [SerializeField] private float speed;
         [Range(0, 1)] [SerializeField] private float switchLaneSpeed;
         [SerializeField] private Transform rightLaneTransform;
@@ -55,6 +56,8 @@ namespace ArianWorkplace
 
         private void Start()
         {
+            audioManager = FindAnyObjectByType<AudioManager>();
+            audioManager.Play("MainTheme");
             screenHeight = Screen.height;
 
             transform.position = new Vector3(rightLaneTransform.position.x, transform.position.y, transform.position.z);
@@ -217,16 +220,7 @@ namespace ArianWorkplace
         {
             if (collision.collider.CompareTag("obstacle"))
             {
-                followPlayerScript.enabled = false;
-                CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
-                this.enabled = false;
-
-                StartCoroutine(StopRotating());
-
-                playerRigidbody.AddForce(-80, 0, -50);
-
-                StartCoroutine(WaitForSceneLoad());
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameOverProcedure();
             }
         }
 
@@ -239,5 +233,22 @@ namespace ArianWorkplace
                 Destroy(other.gameObject);
             }
         }
+        public void GameOverProcedure()
+        {
+            followPlayerScript = GameObject.FindGameObjectWithTag("CameraMover").GetComponent<FollowPlayer>();
+            followPlayerScript.enabled = false;
+            CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
+            audioManager.Play("BallCollision");
+            audioManager.LowerVolume("MainTheme", 0.5f);
+
+            this.enabled = false;
+
+            StartCoroutine(StopRotating());
+
+            playerRigidbody.AddForce(-80, 0, -50);
+
+            StartCoroutine(WaitForSceneLoad());
+        }
+
     }
 }
