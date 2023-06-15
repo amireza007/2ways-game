@@ -6,50 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="f565d016-3a8b-4571-88db-16e26383d4cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Cube Neon/Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Background/Cube Neon/Cube.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Export.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Export.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Bump.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Bump.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Metalness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Metalness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Roughness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Roughness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/FileNamesDescription.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/FileNamesDescription.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free/ReadMe.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMob.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMob.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/6RoadMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/6RoadMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures/Road_4lane_dark02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures/Road_4lane_dark02.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Road_6lane_dark02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Road_6lane_dark02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/M03/ShortObstacle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/M03/ShortObstacle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/M04-Edited/LongObstacle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/M04-Edited/LongObstacle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/BallPlayer.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/BallPlayer.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallAC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallAC.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallRotate.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallRotate.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallSquash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallSquash.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/Jump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/Jump.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene_Bake.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene_Bake.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestNewAnimation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestNewAnimation.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ArianWorkplace/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ArianWorkplace/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,10 +84,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8148">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="8148" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -141,6 +108,7 @@
       <workItem from="1686661232707" duration="10979000" />
       <workItem from="1686731423841" duration="6151000" />
       <workItem from="1686759791826" duration="1627000" />
+      <workItem from="1686826739284" duration="9379000" />
     </task>
     <servers />
   </component>
