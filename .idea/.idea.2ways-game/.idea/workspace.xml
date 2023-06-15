@@ -6,8 +6,50 @@
   <component name="ChangeListManager">
     <list default="true" id="f565d016-3a8b-4571-88db-16e26383d4cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2ways-game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Cube Neon/Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Background/Cube Neon/Cube.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Export.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Export.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Bump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Bump.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Emission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Emission.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Background/Landscape FN/Landscape_Bake1_PBR_Specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/FileNamesDescription.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/FileNamesDescription.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Free/ReadMe.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMob.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/4RoadMob.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/6RoadMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/6RoadMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures/Road_4lane_dark02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Materials/Textures/Road_4lane_dark02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Road_6lane_dark02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BoringRoads/Road_6lane_dark02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallAC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallAC.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallRotate.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallRotate.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Animation System/BallSquash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Animation System/BallSquash.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BackgroundTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestNewAnimation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestNewAnimation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ArianWorkplace/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ArianWorkplace/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +139,8 @@
       <workItem from="1686507824280" duration="931000" />
       <workItem from="1686571156426" duration="8605000" />
       <workItem from="1686661232707" duration="10979000" />
+      <workItem from="1686731423841" duration="6151000" />
+      <workItem from="1686759791826" duration="1627000" />
     </task>
     <servers />
   </component>
