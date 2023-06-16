@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using EZCameraShake;
@@ -28,7 +29,8 @@ namespace ArianWorkplace
         [Range(0, 3)] [SerializeField] private float squashAnimationSpeedMultiplier;
         [Range(0, 1)] [SerializeField] private float squashSpeed;
 
-        [Range(0f, 1f)] [SerializeField] private float swipeAccuracy;
+        [Range(0f, 1f)] [SerializeField] private float jumpSwipeAccuracy;
+        [Range(0f, 1f)] [SerializeField] private float laneSwipeAccuracy;
         [SerializeField] private float jumpSwipeDegree;
         [SerializeField] private float decreaseRotateRate;
 
@@ -43,6 +45,7 @@ namespace ArianWorkplace
         private bool isSwitchingLane = false;
         private Rigidbody playerRigidbody;
         private int screenHeight;
+        private int screenWidth;
 
         private Vector2 initialPosition;
         private Vector2 finalPosition;
@@ -59,6 +62,7 @@ namespace ArianWorkplace
             audioManager = FindAnyObjectByType<AudioManager>();
             audioManager.Play("MainTheme");
             screenHeight = Screen.height;
+            screenWidth = Screen.width;
 
             transform.position = new Vector3(rightLaneTransform.position.x, transform.position.y, transform.position.z);
             isOnRightSide = true;
@@ -163,20 +167,23 @@ namespace ArianWorkplace
         {
             Vector2 swipeVector = finalPosition - initialPosition;
             float swipeVectorMagnitude = swipeVector.magnitude;
-            
-            if ((swipeVectorMagnitude / screenHeight) > swipeAccuracy)
+            float swipeSin = swipeVector.y / swipeVectorMagnitude;
+            float swipeCos = swipeVector.x / swipeVectorMagnitude;
+
+            Debug.Log("Swipe Sin: " + swipeSin + "-- SwipeCos: " + swipeCos);
+            Debug.Log(swipeVectorMagnitude);
+
+            if ((swipeVectorMagnitude / screenHeight) > jumpSwipeAccuracy)
             {
-                float swipeSin = swipeVector.y / swipeVectorMagnitude;
-                float swipeCos = swipeVector.x / swipeVectorMagnitude;
-                
-                Debug.Log("Swipe Sin: " + swipeSin + "-- SwipeCos: " + swipeCos);
-                
                 if (swipeSin > Mathf.Sin(Mathf.Deg2Rad * 45))
                 {
                     PlayerJump();
                     return Swipes.Up;
                 }
+            }
 
+            if (swipeVectorMagnitude / screenWidth > laneSwipeAccuracy)
+            {
                 if (!isSwitchingLane)
                 {
                     if (swipeCos > Mathf.Cos(Mathf.Deg2Rad * 45))
@@ -228,20 +235,32 @@ namespace ArianWorkplace
         {
             if (other.CompareTag("Torch"))
             {
+<<<<<<< Updated upstream
                 //Debug.Log(other.gameObject);
                 audioManager.Play("TorchReward");
                 RenderSettings.fogEndDistance += torchPower;
                 RenderSettings.fogStartDistance += torchPower;
+=======
+                Debug.Log(other.gameObject);
+
+                DOTween.To(() => RenderSettings.fogStartDistance, x => RenderSettings.fogStartDistance = x,
+                    RenderSettings.fogStartDistance + torchPower, 0.5f);
+
+                DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x,
+                    RenderSettings.fogEndDistance + torchPower, 0.5f);
+
+>>>>>>> Stashed changes
                 Destroy(other.gameObject);
             }
         }
+
         public void GameOverProcedure()
         {
             foreach (var followPlayer in GameObject.FindObjectsByType<FollowPlayer>(FindObjectsSortMode.None))
             {
                 followPlayer.enabled = false;
             }
-            
+
             CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
             audioManager.Play("BallHit");
             StartCoroutine (audioManager.LowerVolume("MainTheme", 0.3f));
@@ -254,6 +273,5 @@ namespace ArianWorkplace
 
             StartCoroutine(WaitForSceneLoad());
         }
-
     }
 }

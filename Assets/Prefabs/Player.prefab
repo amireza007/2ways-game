@@ -71,13 +71,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835738481228066922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb74b70a7e64d1492e7195d2905fd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  switchLaneSpeed: 0.9
+  speed: 4
+  switchLaneSpeed: 0.85
   rightLaneTransform: {fileID: 0}
   rightLaneSquashTransform: {fileID: 0}
   leftLaneTransform: {fileID: 0}
@@ -86,12 +86,13 @@ MonoBehaviour:
   ballAnimator: {fileID: 4663363866015187414}
   squashAnimationSpeedMultiplier: 0.6
   squashSpeed: 1
-  swipeAccuracy: 0.2
+  jumpSwipeAccuracy: 0.06
+  laneSwipeAccuracy: 0.1
   jumpSwipeDegree: 45
   decreaseRotateRate: 0.04
   followPlayerScript: {fileID: 0}
   loadScreenSeconds: 2
-  torchPower: 4
+  torchPower: 20
 --- !u!1 &8111821111193542641
 GameObject:
   m_ObjectHideFlags: 0
