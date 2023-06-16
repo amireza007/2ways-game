@@ -228,7 +228,8 @@ namespace ArianWorkplace
         {
             if (other.CompareTag("Torch"))
             {
-                Debug.Log(other.gameObject);
+                //Debug.Log(other.gameObject);
+                audioManager.Play("TorchReward");
                 RenderSettings.fogEndDistance += torchPower;
                 RenderSettings.fogStartDistance += torchPower;
                 Destroy(other.gameObject);
@@ -242,8 +243,8 @@ namespace ArianWorkplace
             }
             
             CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
-            audioManager.Play("BallCollision");
-            audioManager.LowerVolume("MainTheme", 0.5f);
+            audioManager.Play("BallHit");
+            StartCoroutine (audioManager.LowerVolume("MainTheme", 0.3f));
 
             this.enabled = false;
 

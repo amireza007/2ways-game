@@ -1354,7 +1354,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f7bf1eca533df42238be97b09f5b3d64, type: 3}
@@ -1578,12 +1578,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: 3c5c0904c7fdd461fbabd51c662b8817, type: 3}
-    name: BallCollision
+  - clip: {fileID: 8300000, guid: 2661e7c7ef3e143a78e4dd9f7c7cd636, type: 3}
+    name: BallHit
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: f7bf1eca533df42238be97b09f5b3d64, type: 3}
+    name: MainTheme
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: e05af3b3c47344c2982fdd7075e0247c, type: 3}
+    name: TorchReward
+    volume: 0.623
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  ShouldLowerSound: 0
 --- !u!1001 &397067366
 PrefabInstance:
   m_ObjectHideFlags: 0
