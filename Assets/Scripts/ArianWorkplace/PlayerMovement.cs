@@ -235,12 +235,6 @@ namespace ArianWorkplace
         {
             if (other.CompareTag("Torch"))
             {
-<<<<<<< Updated upstream
-                //Debug.Log(other.gameObject);
-                audioManager.Play("TorchReward");
-                RenderSettings.fogEndDistance += torchPower;
-                RenderSettings.fogStartDistance += torchPower;
-=======
                 Debug.Log(other.gameObject);
 
                 DOTween.To(() => RenderSettings.fogStartDistance, x => RenderSettings.fogStartDistance = x,
@@ -249,7 +243,6 @@ namespace ArianWorkplace
                 DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x,
                     RenderSettings.fogEndDistance + torchPower, 0.5f);
 
->>>>>>> Stashed changes
                 Destroy(other.gameObject);
             }
         }
