@@ -1268,8 +1268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decreasingMultiplier: 4
-  minFogStartDistance: 0
-  minFogEndDistance: 10
+  minFogStartDistance: 3
+  minFogEndDistance: 13
 --- !u!4 &321765262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7005768175578554801, guid: f4f54697f641c6d43bfab11ba26282fb,
