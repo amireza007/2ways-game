@@ -236,7 +236,7 @@ namespace ArianWorkplace
             if (other.CompareTag("Torch"))
             {
                 Debug.Log(other.gameObject);
-
+                audioManager.Play("TorchSound");
                 DOTween.To(() => RenderSettings.fogStartDistance, x => RenderSettings.fogStartDistance = x,
                     RenderSettings.fogStartDistance + torchPower, 0.5f);
 
