@@ -245,6 +245,19 @@ namespace ArianWorkplace
 
                 Destroy(other.gameObject);
             }
+            else if (other.CompareTag("Finish"))
+            {
+                LevelCompleted();
+            }
+            else if (other.CompareTag("Fall"))
+            {
+                GameOverProcedure();   
+            }
+        }
+
+        private void LevelCompleted()
+        {
+            StartCoroutine(GameManager.Instance.LevelFinished());
         }
 
         public void GameOverProcedure()
@@ -256,7 +269,7 @@ namespace ArianWorkplace
 
             CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
             audioManager.Play("BallHit");
-            StartCoroutine (audioManager.LowerVolume("MainTheme", 0.3f));
+            StartCoroutine(audioManager.LowerVolume("MainTheme", 0.3f));
 
             this.enabled = false;
 
@@ -264,7 +277,8 @@ namespace ArianWorkplace
 
             playerRigidbody.AddForce(-80, 0, -50);
 
-            StartCoroutine(WaitForSceneLoad());
+            StartCoroutine(GameManager.Instance.LevelFinished());
+            //StartCoroutine(WaitForSceneLoad());
         }
     }
 }

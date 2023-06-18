@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button resetButton;
     [SerializeField] private RectTransform levels;
     [SerializeField] private Button backgroundButton;
-    
+    [SerializeField] private RectTransform finishUI;
+
     private Animator levelsSelectorAnimator;
 
     private void Awake()
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
     private void CloseLevelSelector()
     {
         levelsSelectorAnimator.SetTrigger("Close");
-        
+
         backgroundButton.onClick.RemoveAllListeners();
         backgroundButton.onClick.AddListener(StartGame);
     }
@@ -59,5 +60,18 @@ public class UIManager : MonoBehaviour
     public void SelectLevel(int levelNumber)
     {
         SceneManager.LoadScene(levelNumber);
+    }
+
+    public void LevelFinished()
+    {
+        resetButton.gameObject.SetActive(false);
+        finishUI.gameObject.SetActive(true);
+        
+    }
+
+    public void GoNextLevel()
+    {
+        var currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex + 1);
     }
 }

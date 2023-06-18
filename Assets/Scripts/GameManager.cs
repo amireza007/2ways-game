@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public IEnumerator LevelFinished()
+    {
+        yield return new WaitForSeconds(0.75f);
+        
+        uiManager.LevelFinished();
+    }
+
     public void StartLevel()
     {
         fogController.enabled = true;
