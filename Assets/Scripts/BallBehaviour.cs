@@ -20,6 +20,10 @@ public class BallBehaviour : MonoBehaviour
     {
         rigidbody.useGravity = true;
     }
+    public void StartJumpAnimation()
+    {
+        rigidbody.useGravity = false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("obstacle"))
