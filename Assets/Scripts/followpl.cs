@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class followpl : MonoBehaviour
 {
+    public bool shouldFollow = true;
     // Start is called before the first frame update
     public Transform player;
     Vector3 initialPos;
@@ -14,7 +15,9 @@ public class followpl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        transform.position = new Vector3 (transform.position.x, transform.position.y, player.position.z + initialPos.z);
+        if (shouldFollow)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, initialPos.z + player.position.z);
+        }
     }
 }

@@ -8,16 +8,15 @@ TagManager:
   - initLane
   - rightLane
   - leftLane
-  - player
   - laneSpawner
   - Rock
   - Torch
-  - LeftLObstacle
-  - RightSObstacle
+  - CameraMover
+  - obstacle
   - LeftSObstacle
-  - RightLObstacle
-  - RightLOsbtacle
-  - PlayerPrefab
+  - BallParent
+  - Die
+  - Fall
   layers:
   - Default
   - TransparentFX

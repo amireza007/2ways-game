@@ -1,49 +1,80 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using EZCameraShake;
 
 public class PlayerPrefabMove : MonoBehaviour
 {
-    float z;
-    float y;
-    public float annoyingY = 0.136f; 
-    public Transform player;
-    Vector3 animationLastPosition;
-    Animator player_animator;
-    public float torchPower = 4;
-    public float loadScreenSeconds = 2;
-
+    followpl followPlayerScript;
     public float speedIncreaseRate = 1f;
     public float timer = 0;
     public float currentSpeed = .05f;
     bool isOnTheRightLane = true;
     Transform rightLane;
-    public Rigidbody playerPrefabRigidbody;
+    PlayerPrefabMove prefabScript;
+    float m_MySliderValue;
+    Animator m_Animator;
 
-    // Start is called before the first frame update
-    void Start()
+    private float rotateRateMultiplier = 1;
+    [SerializeField] private float decreaseRotateRate;
+
+
+    //public List<GameObject> torches = new List<GameObject>();
+    public float initialspeed = 100;
+    public float jumpPower = 5000;
+    public float torchPower = 4;
+    public float loadScreenSeconds = 2;
+
+    public Rigidbody playerRigidbody;
+
+    [Range(0f, 1f)] [SerializeField] private float swipeAccuracy;
+    [SerializeField] private float jumpSwipeDegree;
+
+    private float screenHeight;
+
+    private Vector2 initialPosition;
+    private Vector2 finalPosition;
+    private bool isSwiping;
+    private void Awake()
     {
-        player_animator = gameObject.GetComponentInChildren<Animator>();
-        //transform.position = new Vector3(rightLane.position.x, transform.position.y, transform.position.z);
-        animationLastPosition = transform.position;
+        m_Animator = this.GetComponentInChildren<Animator>();
+        screenHeight = Screen.height;
+    }
+
+    private void Start()
+    {
+        //Physics.gravity = new Vector3(0, -20f, 0);
+
     }
     private IEnumerator WaitForSceneLoad()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(loadScreenSeconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("LeftLObstacle") || collision.collider.CompareTag("LeftSObstacle") || collision.collider.CompareTag("RightSObstacle") || collision.collider.CompareTag("RightLObstacle"))
+        if (collision.collider.CompareTag("obstacle"))
         {
-            Debug.Log("it's Gameover!");
-            playerPrefabRigidbody.AddForce(-4, 0, -4);
+
+            //prefabScript.enabled = false;
+            followPlayerScript = GameObject.FindGameObjectWithTag("CameraMover").GetComponent<followpl>();
+            followPlayerScript.enabled = false;
+            //0.5f, 1f, 0.5f, 1f)
+            CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
+            this.enabled = false;
+
+            StartCoroutine(StopRotating());
+
+            playerRigidbody.AddForce(-80, 0, -50);
+
             StartCoroutine(WaitForSceneLoad());
-           
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Torch"))
@@ -53,65 +84,86 @@ public class PlayerPrefabMove : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    void stay()
-    {
-        animationLastPosition = transform.position;
-        Debug.Log(animationLastPosition);
-    }
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        //RenderSettings.fogDensity = 100f;
-        //important part, could be used for rocks as well!!!
-        timer += Time.deltaTime;
-        
 
+    IEnumerator StopRotating()
+    {
+        while (rotateRateMultiplier > 0)
+        {
+            rotateRateMultiplier -= decreaseRotateRate;
+            m_Animator.SetFloat("RotateRate", rotateRateMultiplier);
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
         transform.position += new Vector3(0, 0, currentSpeed);
-        z = transform.position.z;
-        y = transform.position.y;
+
         //transform.position += new Vector3(0, 0, Time.realtimeSinceStartup);
         if (timer > speedIncreaseRate)
         {
-            //Debug.Log("Now you did it!");
-            //currentSpeed += Mathf.Pow(Time.deltaTime,2);
+            currentSpeed += Mathf.Pow(Time.deltaTime, 2);
             timer = 0;
-            transform.position = new Vector3(-0.7f, y, z);
-            player.position =transform.position + new Vector3(0, annoyingY, 0);
-            Debug.Log(player.position);
-            
         }
-        //if (player_animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-        //{
-        //    //Debug.Log(animationLastPosition);
-        //    //Debug.Log("hi");
+        if (Input.GetKeyDown("space"))
+        {
+            PlayerJump();
 
-        //    transform.position = new Vector3(animationLastPosition.x, transform.position.y, transform.position.z);
-        //    //transform.position =new Vector3 (0.70f, 0.08f, 2.43f);
-        //    //Debug.Log(transform.position - animationLastPosition);
-        //}
+            //m_Animator.speed = 3;
+
+            //playerAnimation.ResetTrigger("JumpTrigger");
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            isSwiping = true;
+            initialPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            finalPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            if (isSwiping && CheckJumpSwipe())
+            {
+                PlayerJump();
+                isSwiping = false;
+            }
+        }
         if (Input.GetKeyDown("t"))
         {
-            
-
             if (isOnTheRightLane)
             {
-                Debug.Log("Left!");
-                //player_animator.SetTrigger("switchLeft");
-                player_animator.ResetTrigger("RightSwitch");
-
-                player_animator.SetTrigger("LeftSwitch");
+                transform.position = new Vector3(-0.7f, transform.position.y, transform.position.z);
                 isOnTheRightLane = false;
-
             }
             else if (!isOnTheRightLane)
             {
-                Debug.Log("right!");
-                player_animator.ResetTrigger("LeftSwitch");
-                player_animator.SetTrigger("RightSwitch");
+                transform.position = new Vector3(0.7f, transform.position.y, transform.position.z);
                 isOnTheRightLane = true;
+
             }
         }
-        
 
+    }
+    private bool CheckJumpSwipe()
+    {
+        Vector2 swipeVector = finalPosition - initialPosition;
+        float swipeVectorMagnitude = swipeVector.magnitude;
+        float swipeSin = swipeVector.y / swipeVectorMagnitude;
+
+        Debug.Log(swipeSin);
+
+        return swipeSin >= Mathf.Sin(Mathf.Deg2Rad * jumpSwipeDegree) &&
+               swipeVectorMagnitude / screenHeight > swipeAccuracy;
+    }
+
+    private void PlayerJump()
+    {
+        playerRigidbody.useGravity = false;
+
+        m_Animator.SetTrigger("jump");
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FogTweak: MonoBehaviour
+public class script : MonoBehaviour
 {
     public float disappearanceSpeed= 10;
     public float timer = 0;
@@ -21,7 +21,7 @@ public class FogTweak: MonoBehaviour
         {
             if(RenderSettings.fogEndDistance > RenderSettings.fogStartDistance + 4f)
             {
-                //Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
+                // Debug.Log(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance);
                 RenderSettings.fogEndDistance -= Time.deltaTime / 1.4f;
             }
         }
