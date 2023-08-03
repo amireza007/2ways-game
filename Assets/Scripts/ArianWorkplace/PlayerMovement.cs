@@ -17,8 +17,10 @@ namespace ArianWorkplace
 
     public class PlayerMovement : MonoBehaviour
     {
+        int counter = 0;
+        float measureTime;
         AudioManager audioManager;
-        [SerializeField] private float speed;
+        [SerializeField] public float speed;
         [Range(0, 1)] [SerializeField] private float switchLaneSpeed;
         [SerializeField] private Transform rightLaneTransform;
         [SerializeField] private Transform rightLaneSquashTransform;
@@ -70,6 +72,7 @@ namespace ArianWorkplace
 
         private void Update()
         {
+            if (counter > 0) { measureTime += Time.deltaTime; }
             Vector3 newPosition = transform.position + Vector3.forward * (speed * Time.deltaTime);
             transform.position = newPosition;
 
@@ -95,7 +98,7 @@ namespace ArianWorkplace
                 }
             }
 
-
+           
             if (Input.GetKeyDown(KeyCode.T) && !isSwitchingLane)
             {
                 isOnRightSide = !isOnRightSide;
@@ -104,7 +107,7 @@ namespace ArianWorkplace
                     isOnRightSide ? rightLaneSquashTransform : leftLaneSquashTransform));
             }
         }
-
+        
         private IEnumerator WaitForSceneLoad()
         {
             yield return new WaitForSeconds(loadScreenSeconds);
@@ -171,7 +174,7 @@ namespace ArianWorkplace
             float swipeCos = swipeVector.x / swipeVectorMagnitude;
 
             Debug.Log("Swipe Sin: " + swipeSin + "-- SwipeCos: " + swipeCos);
-            Debug.Log(swipeVectorMagnitude);
+            //Debug.Log(swipeVectorMagnitude);
 
             if ((swipeVectorMagnitude / screenHeight) > jumpSwipeAccuracy)
             {
@@ -222,17 +225,35 @@ namespace ArianWorkplace
             ballParentAnimator.SetTrigger("Jump");
         }
 
-
+        
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.collider.CompareTag("Testi")) {
+                measureTime = Time.deltaTime;
+            }
             if (collision.collider.CompareTag("obstacle"))
             {
                 GameOverProcedure();
             }
         }
-
+        //private void OnCollisionExit(Collision collision)
+        //{
+        //    if (collision.collider.CompareTag("TestLane")) {
+        //        if(measureTime == Time.deltaTime) { Debug.Log("what the hell?"); }
+        //        Debug.Log(Time.deltaTime - measureTime);
+        //    }
+        //}
+        
         private void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag("TestLane"))
+            {
+                if (counter == 0) {
+                    counter++;
+                    Debug.Log(transform.position);
+                }
+                else { Debug.Log(measureTime + "\n" + transform.position); counter = 0; }
+            }
             if (other.CompareTag("Torch"))
             {
                 Debug.Log(other.gameObject);

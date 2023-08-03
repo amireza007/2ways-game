@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FogController fogController;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private RoadManager roadManager;
 
 
     private static GameManager instance;

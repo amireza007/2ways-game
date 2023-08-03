@@ -17,6 +17,9 @@ TagManager:
   - BallParent
   - Die
   - Fall
+  - RoadC
+  - Testi
+  - TestLane
   layers:
   - Default
   - TransparentFX
