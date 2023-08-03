@@ -9,6 +9,7 @@ public class RoadManager : MonoBehaviour
     Queue<GameObject> trackingRightRoads = new Queue<GameObject>();
     Queue<GameObject> untrackedLeftRoads = new Queue<GameObject>();
     Queue<GameObject> trackingLeftRoads = new Queue<GameObject>();
+    GameObject notcontactingRoad;
     GameObject contactingRoad;
     GameObject[] lastEnquedRoads = new GameObject[2];
     int counter = 0;
@@ -25,7 +26,7 @@ public class RoadManager : MonoBehaviour
     {
         contactingRoad = GameObject.FindGameObjectWithTag("RoadC");
         contactingRoad = rightRoads[0];
-        //untrackedRoads.
+        //untrackedRoads
         rightRoads[0] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
         leftRoads[0] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
         rightRoads[0].transform.position = new Vector3(0.6f, 0.03f, 4.4f);
@@ -73,25 +74,40 @@ public class RoadManager : MonoBehaviour
         while (true)
         {
             //Debug.Log("hi");
-            contactingRoad = (player.transform.position.x == -0.6f) ? trackingLeftRoads.Dequeue() : trackingRightRoads.Dequeue();
+            if(player.transform.position.x == -0.6f) {
+                contactingRoad = trackingLeftRoads.Dequeue();
+                notcontactingRoad = trackingRightRoads.Dequeue();
+            }
+            else {
+                contactingRoad = trackingRightRoads.Dequeue();
+                notcontactingRoad = trackingLeftRoads.Dequeue();
+            }
+            
             //Debug.Log(contactingRoad.transform.position.z);
 
-            while (player.transform.position.z <= contactingRoad.transform.position.z + 3.65f)
+            while (player.transform.position.z <= contactingRoad.transform.position.z + 3.65f && player.transform.position.x >= contactingRoad.transform.position.x - 0.2f )
             {
                 Debug.Log("you are in this Lane:" + contactingRoad.transform.position.z);
                 yield return null;
             }
             Debug.Log("hellooooo000000000000000!");
-            yield return new WaitForSeconds(3/playerMovement.speed);
+            yield return new WaitForSeconds(6/playerMovement.speed);
             if (contactingRoad.transform.position.x == 0.6f) {
                 contactingRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 6.7f);
+                notcontactingRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 6.7f);
+
                 lastEnquedRoads[0] = contactingRoad;
                 trackingRightRoads.Enqueue(lastEnquedRoads[0]);
+                lastEnquedRoads[1] = notcontactingRoad;
+                trackingLeftRoads.Enqueue(lastEnquedRoads[1]);
             }
             else {
                 contactingRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 6.7f);
+                notcontactingRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 6.7f);
                 lastEnquedRoads[1] = contactingRoad;
                 trackingLeftRoads.Enqueue(lastEnquedRoads[1]);
+                lastEnquedRoads[0] = notcontactingRoad;
+                trackingRightRoads.Enqueue(lastEnquedRoads[0]);
             }
         }
     }
