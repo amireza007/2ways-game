@@ -98,23 +98,4 @@ public class RoadManager : MonoBehaviour
     ////////////////////////
     ///forget the code below
     ///simply have a list of 10 lanes and transfer them ahead once the ball leaves them
-    IEnumerator ManageLeftRoads()       
-    {
-        //This coroutine both pool(deactivate) and unpool (activate the following) road
-        //Bear in mind that deactivation depends on the speed of the ball
-        
-        /////////////////////////////
-        //when ball's contact point is $offset number AHEAD, deactivate the ball
-        //we need to compute how many seconds, with respect to speed of the ball, it takes for the ball
-        // to stop being in contact with the road. (which is complicated! & not Arian Pasand!:))
-        while (true)
-        {
-            
-            while(objectPool.pooledObjects.Count > 8) {
-                playerMovement.speed = 3;
-            }
-          
-            yield return null;
-        }
-    }
 }
