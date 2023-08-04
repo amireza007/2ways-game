@@ -17,6 +17,7 @@ namespace ArianWorkplace
 
     public class PlayerMovement : MonoBehaviour
     {
+        int temp = 0;
         int counter = 0;
         float measureTime;
         AudioManager audioManager;
@@ -75,7 +76,8 @@ namespace ArianWorkplace
             if (counter > 0) { measureTime += Time.deltaTime; }
             Vector3 newPosition = transform.position + Vector3.forward * (speed * Time.deltaTime);
             transform.position = newPosition;
-
+            temp++;
+            GameManager.currentscore = temp / 10;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -224,8 +226,6 @@ namespace ArianWorkplace
 
             ballParentAnimator.SetTrigger("Jump");
         }
-
-        
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.CompareTag("Testi")) {
@@ -278,6 +278,7 @@ namespace ArianWorkplace
 
         private void LevelCompleted()
         {
+            if (GameManager.currentscore > PlayerPrefs.GetInt("HighScore", 0)) { PlayerPrefs.SetInt("HighScore", GameManager.currentscore); }
             StartCoroutine(GameManager.Instance.LevelFinished());
         }
 
@@ -287,7 +288,7 @@ namespace ArianWorkplace
             {
                 followPlayer.enabled = false;
             }
-
+            if (GameManager.currentscore > PlayerPrefs.GetInt("HighScore", 0)) { PlayerPrefs.SetInt("HighScore", GameManager.currentscore); }
             CameraShaker.Instance.ShakeOnce(0.4f, 4f, 0.5f, 2f);
             audioManager.Play("BallHit");
             StartCoroutine(audioManager.LowerVolume("MainTheme", 0.3f));

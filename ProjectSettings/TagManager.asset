@@ -20,6 +20,7 @@ TagManager:
   - RoadC
   - Testi
   - TestLane
+  - HighScore
   layers:
   - Default
   - TransparentFX

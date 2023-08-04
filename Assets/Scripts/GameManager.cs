@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private RoadManager roadManager;
-
+    public static int highscore;
+    public static int currentscore = 0;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -32,9 +33,13 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
+    private void Start()
+    {
+        highscore = PlayerPrefs.GetInt("HighScore", 0);
+    }
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -47,7 +52,6 @@ public class GameManager : MonoBehaviour
         
         uiManager.LevelFinished();
     }
-
     public void StartLevel()
     {
         fogController.enabled = true;

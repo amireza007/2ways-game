@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using ArianWorkplace;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startUI;
     [SerializeField] private Button resetButton;
     [SerializeField] private RectTransform levels;
+    [SerializeField] private Slider speedSlider;
+    //[SerializeField] private TextMeshProUGUI speedSliderText
+    public TMP_Text hscore;
+    GameObject player;
     [SerializeField] private Button backgroundButton;
     [SerializeField] private RectTransform finishUI;
 
@@ -20,19 +25,28 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         backgroundButton.onClick.AddListener(StartGame);
-        levelNumberText.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1);
+        //levelNumberText.text = "Level " + (SceneManager.GetActiveScene().buildIndex + 1);
+        levelNumberText.text = "ENDLESS\nVERSION";
     }
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        hscore.rectTransform.localPosition = new Vector3(400,0,0);
+        hscore.text = "Current Score: 0\nHigh Score:" + GameManager.highscore;
         levelsSelectorAnimator = levels.GetComponent<Animator>();
     }
+    private void Update()
+    {
+        hscore.text = "Current Score:" + GameManager.currentscore +"\nHigh Score:" + GameManager.highscore;
 
+    }
     public void StartGame()
     {
         startUI.SetActive(false);
+        //resetButton.GetComponent<TextMeshPro>().SetText("ok");
         resetButton.gameObject.SetActive(true);
-
+        speedSlider.gameObject.SetActive(true);
         GameManager.Instance.StartLevel();
     }
 
