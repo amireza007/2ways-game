@@ -73,11 +73,12 @@ namespace ArianWorkplace
 
         private void Update()
         {
-            if (counter > 0) { measureTime += Time.deltaTime; }
+            measureTime += Time.deltaTime;
+            Debug.Log(measureTime);
             Vector3 newPosition = transform.position + Vector3.forward * (speed * Time.deltaTime);
             transform.position = newPosition;
-            temp++;
-            GameManager.currentscore = temp / 10;
+            //temp += (int)transform.position.z /1000;
+            GameManager.currentscore = (int) transform.position.z;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -246,14 +247,6 @@ namespace ArianWorkplace
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("TestLane"))
-            {
-                if (counter == 0) {
-                    counter++;
-                    Debug.Log(transform.position);
-                }
-                else { Debug.Log(measureTime + "\n" + transform.position); counter = 0; }
-            }
             if (other.CompareTag("Torch"))
             {
                 Debug.Log(other.gameObject);
