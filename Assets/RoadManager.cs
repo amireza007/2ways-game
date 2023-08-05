@@ -51,8 +51,8 @@ public class RoadManager : MonoBehaviour
         {
             rightRoads[i] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
             leftRoads[i] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
-            rightRoads[i].transform.position = rightRoads[i - 1].transform.position + new Vector3(0, 0, 6.69f);
-            leftRoads[i].transform.position = leftRoads[i - 1].transform.position + new Vector3(0, 0, 6.69f);
+            rightRoads[i].transform.position = rightRoads[i - 1].transform.position + new Vector3(0, 0, 7.288f);
+            leftRoads[i].transform.position = leftRoads[i - 1].transform.position + new Vector3(0, 0, 7.288f);
             trackingLeftRoads.Enqueue(leftRoads[i]);
             trackingRightRoads.Enqueue(rightRoads[i]);
             if(i == 5) {
@@ -157,7 +157,7 @@ public class RoadManager : MonoBehaviour
             {
                 leftGapSize = 0;
             }
-            dequeuedLeftRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 6.69f + leftGapSize);
+            dequeuedLeftRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 7.288f + leftGapSize);
             lastEnquedRoads[1] = dequeuedLeftRoad;
             trackingLeftRoads.Enqueue(lastEnquedRoads[1]);
             dequeuedLeftRoad = trackingLeftRoads.Dequeue();
@@ -183,7 +183,7 @@ public class RoadManager : MonoBehaviour
             {
                 rightGapSize = 0;
             }
-            dequeuedRightRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 6.69f + rightGapSize);
+            dequeuedRightRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 7.288f + rightGapSize);
             lastEnquedRoads[0] = dequeuedRightRoad;
             trackingRightRoads.Enqueue(lastEnquedRoads[0]);
             dequeuedRightRoad = trackingRightRoads.Dequeue();
