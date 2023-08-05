@@ -2881,11 +2881,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoadCurb
       objectReference: {fileID: 0}
-    - target: {fileID: 3474832814437383139, guid: 442299c26b735a94a90bdfd8d35998ed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}
       propertyPath: m_RootOrder
@@ -2909,12 +2904,12 @@ PrefabInstance:
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7072302
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7069834
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}
@@ -2929,7 +2924,7 @@ PrefabInstance:
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4283704604817449305, guid: 442299c26b735a94a90bdfd8d35998ed,
         type: 3}

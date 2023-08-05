@@ -100,6 +100,7 @@ public class RoadManager : MonoBehaviour
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.right, true);
+
             }
             //possible arrangements for gaps are:
             //(0RoadWithGaps(rwg) & 6NoGapRoad(ngr)) OR (1rwg & 5ngr) OR (2rwg & 4ngr) OR (3rwg & 3ngr) OR
@@ -124,6 +125,7 @@ public class RoadManager : MonoBehaviour
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.left, true);
+
             }
         }
     }
