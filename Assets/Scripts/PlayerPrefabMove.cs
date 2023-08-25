@@ -12,7 +12,6 @@ public class PlayerPrefabMove : MonoBehaviour
     public float timer = 0;
     public float currentSpeed = .05f;
     bool isOnTheRightLane = true;
-    Transform rightLane;
     PlayerPrefabMove prefabScript;
     float m_MySliderValue;
     Animator m_Animator;

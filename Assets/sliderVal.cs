@@ -9,6 +9,7 @@ public class sliderVal : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI Abovetext;
     PlayerMovement playerMovement;
+    [SerializeField] private Animator ballAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,8 @@ public class sliderVal : MonoBehaviour
     {
         slider.onValueChanged.AddListener((v) =>
         {
+            ballAnimator.speed = v;
+            //ballAnimator.SetFloat("RotateRate", v);
             playerMovement.speed = v;
         });
     }

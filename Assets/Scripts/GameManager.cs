@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private RoadManager roadManager;
+    [SerializeField] public Animator ballAnimator;
     public static int highscore;
     public static int currentscore = 0;
 
@@ -36,9 +37,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highscore = PlayerPrefs.GetInt("HighScore", 0);
+
     }
     private void Awake()
     {
+        ballAnimator.SetFloat("RotateRate",0);
 
         if (instance == null)
         {
@@ -54,6 +57,9 @@ public class GameManager : MonoBehaviour
     }
     public void StartLevel()
     {
+        ballAnimator.speed = 2;
+        ballAnimator.SetFloat("RotateRate", 1);
+        Debug.Log(ballAnimator.speed);
         fogController.enabled = true;
         playerMovement.enabled = true;
     }

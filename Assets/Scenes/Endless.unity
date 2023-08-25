@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.43137258, g: 0.4784314, b: 0.61960787, a: 1}
+  m_FogColor: {r: 0.427451, g: 0.4666667, b: 0.6117647, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.4
   m_LinearFogStart: 20
   m_LinearFogEnd: 30
-  m_AmbientSkyColor: {r: 0.11443538, g: 0.11443538, b: 0.11443538, a: 1}
+  m_AmbientSkyColor: {r: 0.16826946, g: 0.19806935, b: 0.2874409, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -916,7 +916,8 @@ MonoBehaviour:
   fogController: {fileID: 272407793}
   playerMovement: {fileID: 1045805768}
   uiManager: {fileID: 143082541}
-  roadManager: {fileID: 0}
+  roadManager: {fileID: 272407795}
+  ballAnimator: {fileID: 1487433456}
 --- !u!114 &272407793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,10 +964,6 @@ MonoBehaviour:
   elapsedTime: 0
   player: {fileID: 1771077889}
   leftRoads:
-  - {fileID: 1148817144}
-  - {fileID: 1148817144}
-  - {fileID: 1148817144}
-  - {fileID: 1148817144}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -974,10 +971,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   rightRoads:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5046,12 +5039,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1906493555}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1148817144 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3474832814437383139, guid: 442299c26b735a94a90bdfd8d35998ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 715787860}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1160933893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5698,6 +5685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1300814293}
   Abovetext: {fileID: 1867042030}
+  ballAnimator: {fileID: 1487433456}
 --- !u!114 &1300814293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6028,6 +6016,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3b26f08213922f94d92dda952b671d2f,
     type: 3}
   m_PrefabInstance: {fileID: 1440700002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1487433456 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4663363866015187414, guid: b585ecb737bfa4a47ba4dda1daa3f8f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 361576152}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1578500496
 PrefabInstance:

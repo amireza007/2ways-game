@@ -74,7 +74,7 @@ namespace ArianWorkplace
         private void Update()
         {
             measureTime += Time.deltaTime;
-            Debug.Log(measureTime);
+            //Debug.Log(measureTime);
             Vector3 newPosition = transform.position + Vector3.forward * (speed * Time.deltaTime);
             transform.position = newPosition;
             //temp += (int)transform.position.z /1000;
@@ -164,7 +164,6 @@ namespace ArianWorkplace
             {
                 rotateRateMultiplier -= decreaseRotateRate;
                 ballAnimator.SetFloat("RotateRate", rotateRateMultiplier);
-
                 yield return new WaitForEndOfFrame();
             }
         }
