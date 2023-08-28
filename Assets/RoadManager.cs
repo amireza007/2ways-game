@@ -89,14 +89,15 @@ public class RoadManager : MonoBehaviour
             while (player.transform.position.z <= dequeuedRightRoad.transform.position.z + 3.65f) 
             {
                 yield return null;
+                Debug.Log("I'm still right here!");
             }
             yield return new WaitForSeconds(fixedSeconds/playerMovement.speed);
-            bool RoadWithGap = false;
+            //bool RoadWithGap = false;
             if (elapsedTime < 10)
             {
                 PlaceRoadsAhead(Side.right, false);
             }
-            else if (elapsedTime < 60)
+            else
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.right, true);
@@ -121,7 +122,7 @@ public class RoadManager : MonoBehaviour
             if (elapsedTime < 10)
             {
                 PlaceRoadsAhead(Side.left, false);
-            }else if( elapsedTime < 60)
+            }else 
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.left, true);
@@ -132,6 +133,7 @@ public class RoadManager : MonoBehaviour
 
     public void PlaceRoadsAhead(Side side,bool WantAGap=false)
     {
+        
         int temp;
         int temp2;
         //When you aim to place a gap, you should be careful about the last placed gap!
@@ -139,15 +141,16 @@ public class RoadManager : MonoBehaviour
         //You could use the side road to scape... However you might not see your future because of the FOG, you have to choose to risk or not risk...
         if (side == Side.left) 
         {
+            //Debug.Log(trackingLeftRoads.Count);
             if (WantAGap)
             {
                 temp = lefGaps.Dequeue();
                 if (temp == 1)
                 {
-                    if (playerMovement.speed > 6.5) { leftGapSize = 5.6f; }
+                    if (playerMovement.speed > 6.5f) { leftGapSize = 5.3f; }
                     else
                     {
-                        leftGapSize = playerMovement.speed - 0.5f;
+                        leftGapSize = playerMovement.speed - 1.2f;
                     }
                 }
                 lefGaps.Enqueue(temp);
@@ -165,15 +168,16 @@ public class RoadManager : MonoBehaviour
         }
         if(side== Side.right)
         {
+            //Debug.Log(trackingRightRoads.Count);
             if (WantAGap)
             {
                 temp2= rightGaps.Dequeue();
                 if (temp2 == 1)
                 {
-                    if (playerMovement.speed > 6.5) { rightGapSize = 5.6f; }
+                    if (playerMovement.speed > 6.5) { rightGapSize = 5.3f; }
                     else
                     {
-                        rightGapSize = playerMovement.speed - 0.5f;
+                        rightGapSize = playerMovement.speed - 1.2f;
                     }
                 }
                 else { rightGapSize = 0; }

@@ -26,7 +26,6 @@ public class sliderVal : MonoBehaviour
     {
         slider.onValueChanged.AddListener((v) =>
         {
-            ballAnimator.speed = v;
             //ballAnimator.SetFloat("RotateRate", v);
             playerMovement.speed = v;
         });

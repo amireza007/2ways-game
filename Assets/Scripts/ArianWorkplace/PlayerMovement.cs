@@ -109,8 +109,10 @@ namespace ArianWorkplace
                 StartCoroutine(SwitchingLaneWithLerp(isOnRightSide ? rightLaneTransform : leftLaneTransform,
                     isOnRightSide ? rightLaneSquashTransform : leftLaneSquashTransform));
             }
+            ballAnimator.speed = this.speed;
+
         }
-        
+
         private IEnumerator WaitForSceneLoad()
         {
             yield return new WaitForSeconds(loadScreenSeconds);
@@ -175,7 +177,7 @@ namespace ArianWorkplace
             float swipeSin = swipeVector.y / swipeVectorMagnitude;
             float swipeCos = swipeVector.x / swipeVectorMagnitude;
 
-            Debug.Log("Swipe Sin: " + swipeSin + "-- SwipeCos: " + swipeCos);
+            //Debug.Log("Swipe Sin: " + swipeSin + "-- SwipeCos: " + swipeCos);
             //Debug.Log(swipeVectorMagnitude);
 
             if ((swipeVectorMagnitude / screenHeight) > jumpSwipeAccuracy)
