@@ -10,6 +10,7 @@ using UnityEngine;
         void Start()
         {
             initialPos = transform.position - player.position;
+            //initialPos = new Vector3(0,1.71f)
         }
         
         void Update()

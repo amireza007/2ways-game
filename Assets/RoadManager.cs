@@ -31,8 +31,9 @@ public class RoadManager : MonoBehaviour
     //ObjectPool objectPool;
     //GameObject leftLane;
     PlayerMovement playerMovement;
-    Queue<int> lefGaps = new Queue<int>(new[] { 1, 0, 0, 0, 1, 0 }); // a Default location of the next 6 gaps for the 6 roads ahead (we'll randomize it later!)
-    Queue<int> rightGaps = new Queue<int>(new[] { 0, 0, 1, 0, 1, 1 }); // a Default location of the next 6 gaps for the 6 roads ahead (we'll randomize it later!)
+    Queue<int> lefGaps = new Queue<int>(new[] { 1, 0, 1, 0, 1, 1 }); // a Default location of the next 6 gaps for the 6 roads ahead (we'll randomize it later!)
+    Queue<int> lefGaps2 = new Queue<int>(new[] { 0, 0, 0, 0, 0, 0 });
+    Queue<int> rightGaps = new Queue<int>(new[] { 0, 0, 0, 0, 0, 0 }); // a Default location of the next 6 gaps for the 6 roads ahead (we'll randomize it later!)
     public int gr = 0; //gapped road
     public int ngr = 6; //Non Gapped roads
     float rightGapSize = 0; //this value changes according to player speed
@@ -51,8 +52,8 @@ public class RoadManager : MonoBehaviour
         {
             rightRoads[i] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
             leftRoads[i] = Instantiate(GameObject.FindGameObjectWithTag("RoadC"));
-            rightRoads[i].transform.position = rightRoads[i - 1].transform.position + new Vector3(0, 0, 7.288f);
-            leftRoads[i].transform.position = leftRoads[i - 1].transform.position + new Vector3(0, 0, 7.288f);
+            rightRoads[i].transform.position = rightRoads[i - 1].transform.position + new Vector3(0, 0, 6.69f);
+            leftRoads[i].transform.position = leftRoads[i - 1].transform.position + new Vector3(0, 0, 6.69f);
             trackingLeftRoads.Enqueue(leftRoads[i]);
             trackingRightRoads.Enqueue(rightRoads[i]);
             if (i == 5)
@@ -98,7 +99,7 @@ public class RoadManager : MonoBehaviour
             {
                 PlaceRoadsAhead(Side.right, false);
             }
-            else
+            else 
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.right, true);
@@ -119,16 +120,19 @@ public class RoadManager : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForSeconds(fixedSeconds / playerMovement.speed);
-            bool RoadWithGap = false;
             if (elapsedTime < 10)
             {
                 PlaceRoadsAhead(Side.left, false);
             }
-            else
+            else if (elapsedTime <20) //this is where we need to use Dynamic Difficulty Adjustment! This is where things get hard!
             {
                 //let's use a default configuration (like 1000010)
                 PlaceRoadsAhead(Side.left, true);
 
+            }else
+            {
+                lefGaps = lefGaps2;
+                PlaceRoadsAhead(Side.left, true);
             }
         }
     }
@@ -136,63 +140,39 @@ public class RoadManager : MonoBehaviour
     public void PlaceRoadsAhead(Side side, bool WantAGap = false)
     {
 
-        int temp;
-        int temp2;
+        int leftGapDequeued;
+        int rightGapDequeued;
         //When you aim to place a gap, you should be careful about the last placed gap!
         //If it's not ok to place it (i.e. going falling into it when facing the last gap), DON'T DO IT! Or should you??
         //You could use the side road to scape... However you might not see your future because of the FOG, you have to choose to risk or not risk...
         if (side == Side.left)
-        {
-            //Debug.Log(trackingLeftRoads.Count);
-            if (WantAGap)
-            {
-                temp = lefGaps.Dequeue();
-                if (temp == 1)
-                {
-                    if (playerMovement.speed > 6.5f) { leftGapSize = 5.3f; }
-                    else
-                    {
-                        leftGapSize = playerMovement.speed - 1.2f;
-                    }
-                }
-                lefGaps.Enqueue(temp);
-
-            }
-            else
-            {
-                leftGapSize = 0;
-            }
-            dequeuedLeftRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 7.288f + leftGapSize);
+        {            
+            leftGapDequeued = lefGaps.Dequeue();
+     
+            dequeuedLeftRoad.transform.position = lastEnquedRoads[1].transform.position + new Vector3(0, 0, 6.69f);
             lastEnquedRoads[1] = dequeuedLeftRoad;
+            if (leftGapDequeued == 1) lastEnquedRoads[1].SetActive(false);
+            if (leftGapDequeued == 0) lastEnquedRoads[1].SetActive(true);
+
             trackingLeftRoads.Enqueue(lastEnquedRoads[1]);
             dequeuedLeftRoad = trackingLeftRoads.Dequeue();
 
+            lefGaps.Enqueue(leftGapDequeued);
         }
         if (side == Side.right)
         {
-            //Debug.Log(trackingRightRoads.Count);
-            if (WantAGap)
-            {
-                temp2 = rightGaps.Dequeue();
-                if (temp2 == 1)
-                {
-                    if (playerMovement.speed > 6.5) { rightGapSize = 5.3f; }
-                    else
-                    {
-                        rightGapSize = playerMovement.speed - 1.2f;
-                    }
-                }
-                else { rightGapSize = 0; }
-                rightGaps.Enqueue(temp2);
-            }
-            else
-            {
-                rightGapSize = 0;
-            }
-            dequeuedRightRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 7.288f + rightGapSize);
+            
+            rightGapDequeued = rightGaps.Dequeue();
+            
+            dequeuedRightRoad.transform.position = lastEnquedRoads[0].transform.position + new Vector3(0, 0, 6.69f);
             lastEnquedRoads[0] = dequeuedRightRoad;
+            if (rightGapDequeued == 1) lastEnquedRoads[0].SetActive(false);
+            if (rightGapDequeued == 0) lastEnquedRoads[0].SetActive(true);
+
             trackingRightRoads.Enqueue(lastEnquedRoads[0]);
             dequeuedRightRoad = trackingRightRoads.Dequeue();
+
+            rightGaps.Enqueue(rightGapDequeued);
         }
     }
     public Queue<int> GetGapConfig(int numberOfGaps)

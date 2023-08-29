@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highscore = PlayerPrefs.GetInt("HighScore", 0);
+        roadManager.enabled = false;
+        fogController.enabled = false;
+       
 
     }
     private void Awake()
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
         ballAnimator.speed = 2;
         ballAnimator.SetFloat("RotateRate", 1);
         Debug.Log(ballAnimator.speed);
+        roadManager.enabled = true;
         fogController.enabled = true;
         playerMovement.enabled = true;
     }
